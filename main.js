@@ -39,14 +39,20 @@ function setup() {
 }
 
 function draw() 
-{ if(draw_apple == "set") 
-{ for(var i = 1; i <= to_number; i++) 
-  { x = Math.floor(Math.random() * 700); y = Math.floor(Math.random() * 400 ); 
-    image(apple, x, y, 50, 50); } 
-    document.getElementById("status").innerHTML = to_number + " Apples drawn"; speak_data = to_number + "Apples drawn"; 
-    speak(); draw_apple = ""; 
- }
+function draw() {
+  if (draw_apple == "set") {
+    for (var i = 1; i <= to_number; i++) {
+      x = Math.floor(Math.random() * (screen_width - 50)); // Update the range to be within the screen width
+      y = Math.floor(Math.random() * (screen_height - 200)); // Update the range to be within the screen height
+      image(apple, x, y, 50, 50);
+    }
+    document.getElementById("status").innerHTML = to_number + " Apples drawn";
+    speak_data = to_number + "Apples drawn";
+    speak();
+    draw_apple = "";
+  }
 }
+
 
 function speak()
 { 
